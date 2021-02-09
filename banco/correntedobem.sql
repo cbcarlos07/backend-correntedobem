@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Tempo de geração: 09/02/2021 às 15:58
+-- Tempo de geração: 09/02/2021 às 17:28
 -- Versão do servidor: 8.0.1-dmr
 -- Versão do PHP: 7.4.13
 
@@ -124,7 +124,7 @@ CREATE TABLE `email_config` (
 --
 
 INSERT INTO `email_config` (`id`, `name`, `username`, `email`, `password`, `port`, `host`, `secure`, `copy`, `text_send`, `text_response`, `logo`, `subject_send`, `subject_response`) VALUES
-(1, 'Corrente do Bem', 'd56da3db720689', 'cbcarlos07@gmail.com', '8a39a6ea2ecb35', '587', 'smtp.mailtrap.io', 0, 'cbcarlos08@gmail.com', 'Você recebeu um e-mail de contato', 'Agradecemos seu contato', 'e93N5Ls9A.png', 'Novo Contato', 'Obrigado!');
+(1, 'Corrente do Bem', 'd56da3db720689', 'do.bem.sos@gmail.com', '8a39a6ea2ecb35', '587', 'smtp.mailtrap.io', 0, 'cbcarlos08@gmail.com', 'Você recebeu um e-mail de contato', 'Agradecemos seu contato', 'e93N5Ls9A.png', 'Novo Contato', 'Obrigado!');
 
 -- --------------------------------------------------------
 
