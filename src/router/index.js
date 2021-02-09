@@ -7,7 +7,7 @@ import equipeRouter, {setRealtimeEquipe} from './equipeRouter'
 import {arrecadacaoRouter, setRealtimeArrecadacao} from './arrecadacaoRouter'
 import {metaRouter, setRealtimeMeta} from './metaRouter'
 import {menuRouter, setRealtimeMenu} from './menuRouter'
-import temaRouter from './temaRouter'
+import temaRouter, {setRealtimeTema} from './temaRouter'
 import emailConfigRouter from './emailConfigRouter'
 import emailContactRouter from './emailContactRouter'
 import {contatoRouter, setRealtimeContato} from './contatoRouter'
@@ -25,6 +25,7 @@ const routes = deps => {
     setRealtimeContato(io)
     setRealtimeRedes(io)
     setRealtimeEquipe(io)
+    setRealtimeTema(io)
     router.add('/', initRouter)
     router.add(`${prefix}/area`, areaRouter)
     router.add(`${prefix}/usuario`, usuarioRouter)

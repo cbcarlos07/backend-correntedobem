@@ -9,6 +9,7 @@ import  EmailContactController from '../controller/EmailContactController'
 import  { ContatoController } from '../controller/ContatoController'
 import   RedesSociaisController  from '../controller/RedesSociaisController'
 import {MetaController} from '../controller/MetaController'
+import TemaController from '../controller/TemaController'
 const router = new Router.Router()
 
 router.get('', (req, res, next)=>{
@@ -31,5 +32,6 @@ router.post('site/email', EmailContactController.create)
 router.get('site/contato', ContatoController.findAll)
 router.get('site/redes', RedesSociaisController.findAll)
 router.get('site/meta', MetaController.findAll)
+router.get('site/tema', TemaController.findAll)
 
 export default router

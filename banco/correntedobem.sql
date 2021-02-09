@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Tempo de geração: 09/02/2021 às 17:28
+-- Tempo de geração: 09/02/2021 às 18:43
 -- Versão do servidor: 8.0.1-dmr
 -- Versão do PHP: 7.4.13
 
@@ -316,7 +316,7 @@ CREATE TABLE `tema` (
 --
 
 INSERT INTO `tema` (`id`, `description`, `logo`, `tema`) VALUES
-(1, 'Somos um grupo de pessoas que têm na veia o desejo de contribuir com a vida! Tudo nasceu com a iniciativa de 7 amigos, para comprar máscaras e aventais cirúrgicos! Depois disso o movimento cresceu dentro do grupo de Encontro de Casais com Cristo do Espaço Alpha! O grupo foi crescendo, assim como a necessidade do povo manauara! Nosso desejo é doar nosso tempo, nossos recursos e a nossa solidariedade para aqueles que neste momento realmente não tem com quem contar! Somos mais de 50 voluntários de diversas áreas de atuação e diversas localidades do Brasil e do mundo em uma missão pela vida em meio à Pandemia do Covid-19. \n', 'ntbLNOYhZ.png', 'Corrente do Bem');
+(1, 'Venha fazer parte desta corrente', 'ntbLNOYhZ.png', 'Corrente do Bem');
 
 -- --------------------------------------------------------
 
