@@ -3,7 +3,6 @@ import EmailContactController from '../controller/EmailContactController'
 
 const router = new Router.Router()
 
-
 router.post('', EmailContactController.create)
 router.put('/:id', EmailContactController.update)
 router.del('/:id', EmailContactController.delete)
