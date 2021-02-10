@@ -23,6 +23,7 @@ class QueryValues{
         getConnection(query, params = [], callback){
             
             pool.getConnection((err, connection)=>{                
+                if(err) console.log('err',err)
                 connection.query(query, params, (error, results)=>{
                    connection.release()
                    callback(error, results)
