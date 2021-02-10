@@ -1,4 +1,4 @@
-import MySQLHelper from "../../helpers/mysql";
+import MySQLHelper from "../../helpers/MySQL";
 import Debug from 'debug'
 const log = Debug('Model');
 
