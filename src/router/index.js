@@ -10,6 +10,7 @@ import {menuRouter, setRealtimeMenu} from './menuRouter'
 import temaRouter, {setRealtimeTema} from './temaRouter'
 import emailConfigRouter from './emailConfigRouter'
 import emailContactRouter from './emailContactRouter'
+
 import {contatoRouter, setRealtimeContato} from './contatoRouter'
 import redesSociaisRouter, {setRealtimeRedes} from './redesSociaisRouter'
 const router = new Router.Router()
