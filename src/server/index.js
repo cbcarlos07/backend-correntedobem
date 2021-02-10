@@ -14,7 +14,8 @@ const io = require( 'socket.io' )( server.server, {
         origin: [
             'http://localhost',
             'http://localhost:5500',
-            'http://54.236.26.100'
+            'http://54.236.26.100',
+            'http://site.correntedobemsos.com.br'
         ]
     }
 } )
