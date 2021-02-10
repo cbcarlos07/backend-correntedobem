@@ -28,9 +28,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --es-module-specifier-resolution=node src"
+    "dev": "nodemon --es-module-specifier-resolution=node src",
+    "start": "--es-module-specifier-resolution=node src"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": "14.15.1"
+  }
 }
