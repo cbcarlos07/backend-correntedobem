@@ -11,7 +11,8 @@ export default class EmailContactController {
     }
 
     static reenviar(req, res){
-        EmailContactController
+        
+        EmailContactService
             .reenviar(req.params.id)
             .then(response => {
                 res.send( response )

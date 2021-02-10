@@ -1,5 +1,5 @@
 import EmailContactRepository from '../repository/EmailContactRepository'
-import {enviarEmail} from '../helpers/email'
+import {enviarEmail, enviarEmailParaEquipe} from '../helpers/email'
 class AreaService{
 
     static create(obj) {
