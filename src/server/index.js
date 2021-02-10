@@ -13,7 +13,8 @@ const io = require( 'socket.io' )( server.server, {
     cors: {
         origin: [
             'http://localhost',
-            'http://localhost:5500'
+            'http://localhost:5500',
+            'http://54.236.26.100'
         ]
     }
 } )
