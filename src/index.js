@@ -4,7 +4,7 @@ import { env } from 'process'
 
 const PORT = env.PORT || 3006
 
-server.listen( '0.0.0.0',PORT, () =>{
+server.listen( ,PORT,'0.0.0.0', () =>{
     console.log(`API rodando da porta ${PORT}` );
 })
 
