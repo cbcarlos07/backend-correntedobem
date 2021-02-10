@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import server from './server'
 import { env } from 'process'
-import './helpers/MySQL'
+
 
 const PORT = env.SERVER_PORT
 
