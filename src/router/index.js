@@ -9,8 +9,7 @@ import {metaRouter, setRealtimeMeta} from './metaRouter'
 import {menuRouter, setRealtimeMenu} from './menuRouter'
 import temaRouter, {setRealtimeTema} from './temaRouter'
 import emailConfigRouter from './emailConfigRouter'
-import emailContactRouter from './emailContactRouter'
-
+//import emailContactRouter from './emailContactRouter'
 import {contatoRouter, setRealtimeContato} from './contatoRouter'
 import redesSociaisRouter, {setRealtimeRedes} from './redesSociaisRouter'
 const router = new Router.Router()
@@ -36,7 +35,7 @@ const routes = deps => {
     router.add(`${prefix}/menu`, menuRouter)
     router.add(`${prefix}/tema`, temaRouter)
     router.add(`${prefix}/email-config`, emailConfigRouter)
-    router.add(`${prefix}/email-contact`, emailContactRouter)
+    //router.add(`${prefix}/email-contact`, emailContactRouter)
     router.add(`${prefix}/contato`, contatoRouter)
     router.add(`${prefix}/redes`, redesSociaisRouter)
 
