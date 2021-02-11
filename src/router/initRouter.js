@@ -10,6 +10,7 @@ import  { ContatoController } from '../controller/ContatoController'
 import   RedesSociaisController  from '../controller/RedesSociaisController'
 import {MetaController} from '../controller/MetaController'
 import TemaController from '../controller/TemaController'
+import EquipeController from '../controller/EquipeController'
 const router = new Router.Router()
 
 router.get('', (req, res, next)=>{
@@ -33,5 +34,6 @@ router.get('site/contato', ContatoController.findAll)
 router.get('site/redes', RedesSociaisController.findAll)
 router.get('site/meta', MetaController.findAll)
 router.get('site/tema', TemaController.findAll)
+router.get('site/equipe/:id', EquipeController.findByArea)
 
 export default router
