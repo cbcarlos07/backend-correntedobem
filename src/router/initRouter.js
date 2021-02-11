@@ -34,6 +34,6 @@ router.get('site/contato', ContatoController.findAll)
 router.get('site/redes', RedesSociaisController.findAll)
 router.get('site/meta', MetaController.findAll)
 router.get('site/tema', TemaController.findAll)
-router.get('site/equipe/:id', EquipeController.findByArea)
+router.get('site/equipe/:id', EquipeController.getTeam)
 
 export default router
