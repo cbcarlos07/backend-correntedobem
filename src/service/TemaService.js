@@ -39,7 +39,7 @@ class TemaService{
             let imgNameFile = ''
             let objTema = await this.findByPK( id )
             if(obj.logo){
-                if( objTema.logo ){
+                if( objTema.logo || objTema.logo != null ){
                     FileHelper.remove( objTema.logo )
                 }
                 logo         = obj.logo
@@ -47,7 +47,7 @@ class TemaService{
                 obj.logo= logoNameFile
                 
            }
-            if( obj.image ){
+            if( obj.image || objTema.image != null){
                 if(objTema.image){
                     FileHelper.remove( objTema.logo )
                     
