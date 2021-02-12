@@ -38,6 +38,7 @@ class TemaService{
             let image = ''
             let imgNameFile = ''
             let objTema = await this.findByPK( id )
+            //console.log('objTema',objTema);
             if(obj.logo){
                 if( objTema.logo || objTema.logo != null ){
                     FileHelper.remove( objTema.logo )
@@ -56,7 +57,7 @@ class TemaService{
                 imgNameFile = `${shortId.generate()}.png`
                 obj.image         = imgNameFile
             }
-            console.log('obj editar',obj);
+          //  console.log('obj editar',obj);
            TemaRepository.update( id, obj )
             .then(response =>{
                 if(obj.logo) FileHelper.convertToImg( logoNameFile, logo )
