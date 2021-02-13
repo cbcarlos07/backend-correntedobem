@@ -28,6 +28,15 @@ const socket = io => {
         socket.on('foto', msg => {
             socket.broadcast.emit( 'foto', msg )
         })
+        socket.on('acoes', msg => {
+            socket.broadcast.emit( 'acoes', msg )
+        })
+        socket.on('acoes-item', msg => {
+            socket.broadcast.emit( 'acoes-item', msg )
+        })
+        socket.on('quem', msg => {
+            socket.broadcast.emit( 'quem', msg )
+        })
     })
 }
 

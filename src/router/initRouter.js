@@ -11,6 +11,9 @@ import   RedesSociaisController  from '../controller/RedesSociaisController'
 import {MetaController} from '../controller/MetaController'
 import TemaController from '../controller/TemaController'
 import EquipeController from '../controller/EquipeController'
+import AcoesController from '../controller/AcoesController'
+import AcoesItemController from '../controller/AcoesItemController'
+import QuemSomosController from '../controller/QuemSomosController'
 import {AreaFotoController} from '../controller/AreaFotoController'
 const router = new Router.Router()
 
@@ -37,5 +40,8 @@ router.get('site/meta', MetaController.findAll)
 router.get('site/tema', TemaController.findAll)
 router.get('site/equipe/:id', EquipeController.getTeam)
 router.get('site/foto/:id', AreaFotoController.findByArea)
+router.get('site/acoes', AcoesController.findAll)
+router.get('site/acoes-item', AcoesItemController.findAll)
+router.get('site/quem-somos', QuemSomosController.findAll)
 
 export default router

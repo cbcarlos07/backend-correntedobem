@@ -13,6 +13,9 @@ import emailConfigRouter from './emailConfigRouter'
 import emailContactRouter from './emailContactRouter'
 import {contatoRouter, setRealtimeContato} from './contatoRouter'
 import redesSociaisRouter, {setRealtimeRedes} from './redesSociaisRouter'
+import acoesRouter, {setRealtimeAcoes} from './acoesRouter'
+import acoesItemRouter, {setRealtimeAcoesItem} from './acoesItemRouter'
+import quemSomosRuter, {setRealtimeQuemSomos} from './quemSomosRouter'
 const router = new Router.Router()
 const prefix = '/api/v1'
 
@@ -28,6 +31,9 @@ const routes = deps => {
     setRealtimeEquipe(io)
     setRealtimeTema(io)
     realtimeAreaFoto(io)
+    setRealtimeAcoes(io)
+    setRealtimeAcoesItem(io)
+    setRealtimeQuemSomos(io)
     router.add('/', initRouter)
     router.add(`${prefix}/area`, areaRouter)
     router.add(`${prefix}/usuario`, usuarioRouter)
@@ -41,6 +47,9 @@ const routes = deps => {
     router.add(`${prefix}/contato`, contatoRouter)
     router.add(`${prefix}/redes`, redesSociaisRouter)
     router.add(`${prefix}/foto`, areaFotoRouter)
+    router.add(`${prefix}/acoes`, acoesRouter)
+    router.add(`${prefix}/acoes-item`, acoesItemRouter)
+    router.add(`${prefix}/quem-somos`,quemSomosRuter)
 
     router.applyRoutes( server )
 }
