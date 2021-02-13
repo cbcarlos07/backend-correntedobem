@@ -25,6 +25,9 @@ const socket = io => {
         socket.on('tema', msg => {
             socket.broadcast.emit( 'tema', msg )
         })
+        socket.on('foto', msg => {
+            socket.broadcast.emit( 'foto', msg )
+        })
     })
 }
 

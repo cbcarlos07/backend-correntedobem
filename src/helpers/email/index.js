@@ -20,7 +20,7 @@ const enviarEmailParaContato =  id => {
         const templateFile = path.resolve(__dirname,'template-response.html')
         const templateData = fs.readFileSync( templateFile, {encoding: 'utf-8'} )
         const template     = handlebars.compile(templateData.toString())
-        const logo         = `${process.env.HOST}/foto/${objConfig.logo}`
+        const logo         = `${objConfig.url}/foto/${objConfig.logo}`
         const html         = template({
                                         name: objContato.name, 
                                         content: objConfig.text_response,
@@ -52,7 +52,7 @@ const enviarEmailParaEquipe = id => {
         const templateFile = path.resolve(__dirname,'template-send.html')
         const templateData = fs.readFileSync( templateFile, {encoding: 'utf-8'} )
         const template     = handlebars.compile(templateData.toString())
-        const logo         = `${process.env.HOST}/foto/${objConfig.logo}`
+        const logo         = `${objConfig.url}/foto/${objConfig.logo}`
         const html         = template({
                                         name:    objContato.name, 
                                         email:   objContato.email, 

@@ -33,9 +33,11 @@ class AreaService{
        return new Promise(async (resolve, reject)=>{
            let logo = ''
            let logoNameFile = ''
+           let objArea = await this.findByPK( id )
            if(obj.logo){
-                let objArea = await this.findByPK( id )
-                FileHelper.remove( objArea.logo )
+                if( objArea.logo != null ){
+                    FileHelper.remove( objArea.logo )    
+                }
                 logo         = obj.logo
                 logoNameFile = `${shortId.generate()}.png`
                 obj.logo= logoNameFile
@@ -44,8 +46,9 @@ class AreaService{
            let icon = ''
            let iconNameFile = ''
            if(obj.icon){
-                let objArea = await this.findByPK( id )
-                FileHelper.remove( objArea.icon )
+                if( objArea.icon != null ){
+                    FileHelper.remove( objArea.icon )
+                }
                 icon         = obj.icon
                 iconNameFile = `${shortId.generate()}.png`
                 obj.icon= iconNameFile

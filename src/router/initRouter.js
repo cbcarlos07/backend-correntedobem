@@ -11,6 +11,7 @@ import   RedesSociaisController  from '../controller/RedesSociaisController'
 import {MetaController} from '../controller/MetaController'
 import TemaController from '../controller/TemaController'
 import EquipeController from '../controller/EquipeController'
+import {AreaFotoController} from '../controller/AreaFotoController'
 const router = new Router.Router()
 
 router.get('', (req, res, next)=>{
@@ -35,5 +36,6 @@ router.get('site/redes', RedesSociaisController.findAll)
 router.get('site/meta', MetaController.findAll)
 router.get('site/tema', TemaController.findAll)
 router.get('site/equipe/:id', EquipeController.getTeam)
+router.get('site/foto/:id', AreaFotoController.findByArea)
 
 export default router

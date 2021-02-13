@@ -2,6 +2,7 @@
 import Router from 'restify-router'
 import initRouter from './initRouter'
 import {areaRouter, realtimeArea} from './areaRouter'
+import areaFotoRouter, { realtimeAreaFoto} from './areaFotoRouter'
 import usuarioRouter from './usuarioRouter'
 import equipeRouter, {setRealtimeEquipe} from './equipeRouter'
 import {arrecadacaoRouter, setRealtimeArrecadacao} from './arrecadacaoRouter'
@@ -26,6 +27,7 @@ const routes = deps => {
     setRealtimeRedes(io)
     setRealtimeEquipe(io)
     setRealtimeTema(io)
+    realtimeAreaFoto(io)
     router.add('/', initRouter)
     router.add(`${prefix}/area`, areaRouter)
     router.add(`${prefix}/usuario`, usuarioRouter)
@@ -38,6 +40,7 @@ const routes = deps => {
     router.add(`${prefix}/email-contact`, emailContactRouter)
     router.add(`${prefix}/contato`, contatoRouter)
     router.add(`${prefix}/redes`, redesSociaisRouter)
+    router.add(`${prefix}/foto`, areaFotoRouter)
 
     router.applyRoutes( server )
 }
