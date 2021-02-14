@@ -17,7 +17,7 @@ import AcoesController from '../controller/AcoesController'
 import AcoesItemController from '../controller/AcoesItemController'
 import QuemSomosController from '../controller/QuemSomosController'
 import {AreaFotoController} from '../controller/AreaFotoController'
-import {getImage} from '../helpers/AWSHelper'
+import ParceirosController from '../controller/ParceirosController'
 const router = new Router.Router()
 
 router.get('', (req, res, next)=>{
@@ -50,6 +50,7 @@ router.get('foto/:image', async (req, res, next)=>{
 
         }).catch(e => {
             console.log('Imagem não encontrada')
+            res.send( {msg: 'Imagem não encontrada'} )
             next()
         })
 
@@ -70,5 +71,6 @@ router.get('site/foto/:id', AreaFotoController.findByArea)
 router.get('site/acoes', AcoesController.findAll)
 router.get('site/acoes-item', AcoesItemController.findAll)
 router.get('site/quem-somos', QuemSomosController.findAll)
+router.get('site/parceiros', ParceirosController.findAll)
 
 export default router

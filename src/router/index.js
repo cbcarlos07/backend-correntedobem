@@ -17,6 +17,7 @@ import acoesRouter, {setRealtimeAcoes} from './acoesRouter'
 import acoesItemRouter, {setRealtimeAcoesItem} from './acoesItemRouter'
 import quemSomosRuter, {setRealtimeQuemSomos} from './quemSomosRouter'
 import awsRouter, {setRealtimeAws} from './awsRouter'
+import parceirosRouter, {setRealtimeParceiros} from './parceirosRouter'
 const router = new Router.Router()
 const prefix = '/api/v1'
 
@@ -36,6 +37,7 @@ const routes = deps => {
     setRealtimeAcoesItem(io)
     setRealtimeQuemSomos(io)
     setRealtimeAws(io)
+    setRealtimeParceiros(io)
     router.add('/', initRouter)
     router.add(`${prefix}/area`, areaRouter)
     router.add(`${prefix}/usuario`, usuarioRouter)
@@ -53,6 +55,7 @@ const routes = deps => {
     router.add(`${prefix}/acoes-item`, acoesItemRouter)
     router.add(`${prefix}/quem-somos`,quemSomosRuter)
     router.add(`${prefix}/aws`,awsRouter)
+    router.add(`${prefix}/parceiros`,parceirosRouter)
 
     router.applyRoutes( server )
 }
