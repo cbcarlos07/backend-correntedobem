@@ -34,6 +34,8 @@ router.post('auth', UsuarioController.auth )
 
 router.get('foto/:image', async (req, res, next)=>{
     const {image} = req.params
+    
+
     axios
         .get(`https://correntedobem.s3.amazonaws.com/${image}`, {
             responseType: 'arraybuffer'
@@ -46,7 +48,10 @@ router.get('foto/:image', async (req, res, next)=>{
             res.end(null, 'binary');
             next()
 
-        }).catch(e => console.log('Imagem não encontrada'))
+        }).catch(e => {
+            console.log('Imagem não encontrada')
+            next()
+        })
 
 
 })
