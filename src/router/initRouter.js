@@ -1,6 +1,8 @@
 import Router from 'restify-router'
 import restify from 'restify'
 import path from 'path'
+import fs from 'fs'
+import axios from 'axios'
 import UsuarioController from '../controller/UsuarioController'
 import { AreaController } from '../controller/AreaController'
 import { MenuController } from '../controller/MenuController'
@@ -15,6 +17,7 @@ import AcoesController from '../controller/AcoesController'
 import AcoesItemController from '../controller/AcoesItemController'
 import QuemSomosController from '../controller/QuemSomosController'
 import {AreaFotoController} from '../controller/AreaFotoController'
+import {getImage} from '../helpers/AWSHelper'
 const router = new Router.Router()
 
 router.get('', (req, res, next)=>{
@@ -24,10 +27,29 @@ router.get('', (req, res, next)=>{
 
 router.post('auth', UsuarioController.auth )
 
-router.get('foto/*', restify.plugins.serveStatic({
+/*router.get('foto/*', restify.plugins.serveStatic({
     directory: path.resolve('./public'),
     appendRequestPath: false
-}))
+}))*/
+
+router.get('foto/:image', async (req, res, next)=>{
+    const {image} = req.params
+    axios
+        .get(`https://correntedobem.s3.amazonaws.com/${image}`, {
+            responseType: 'arraybuffer'
+        })
+        .then(response => {
+            //Buffer.from(response.data, 'binary').toString('base64')
+            const fileContent = Buffer.from(response.data, 'binary')
+            res.writeHead(200, {'Content-Type': 'image/png'});
+            res.write(fileContent, 'binary');
+            res.end(null, 'binary');
+            next()
+
+        }).catch(e => console.log('Imagem não encontrada'))
+
+
+})
 
 router.get('site/area', AreaController.subArea)
 router.get('site/area/:id', AreaController.findByPK)
