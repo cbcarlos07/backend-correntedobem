@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import axios from 'axios'
 import {uploadToAWS, deleteImg} from '../helpers/AWSHelper'
 export default {
     convertToImg(filename, base64File){
@@ -18,5 +19,21 @@ export default {
         } catch (error) {
             console.log(`Error removindo file '${filename}': `,error);
         }*/
+    },
+    downloadImage(logo){
+        const url = `https://correntedobem.s3.amazonaws.com/${logo}`
+        const img_path = path.resolve('public','logo.png')
+        axios({
+            url,
+            responseType: 'stream',
+          }).then(
+            response =>
+              new Promise((resolve, reject) => {
+                response.data
+                  .pipe(fs.createWriteStream(img_path))
+                  .on('finish', () => resolve())
+                  .on('error', e => reject(e));
+              })
+          )      
     }
 }

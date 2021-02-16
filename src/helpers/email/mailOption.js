@@ -1,8 +1,8 @@
 import EmailConfigService from '../../service/EmailConfigService'
-const mailOption = async () => {
+const mailOptionConfig = async () => {
     let objConfig = await EmailConfigService.findByPK(1)
     return {
-        from: objConfig.email,
+        from: objConfig.username,
         to: 'carlos@teste.com',
         subject: 'ASSUNTO',
         html: 'Corpo da mensagem',
@@ -10,4 +10,4 @@ const mailOption = async () => {
     }
 }
 
-export default mailOption
+export default mailOptionConfig
