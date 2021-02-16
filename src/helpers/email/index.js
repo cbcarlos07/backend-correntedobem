@@ -16,14 +16,15 @@ const enviarEmailParaContato =  id => {
         let objConfig      = await EmailConfigService.findByPK(1)
         let objContato     = await EmailContactService.findByPK(id)
 
-        await FileHelper.downloadImage( objConfig.logo )
+        //await FileHelper.downloadImage( objConfig.logo )
+        const logoName = objConfig.logo
 
         mailOption.subject = objConfig.subject_response
         mailOption.to      = objContato.email
         mailOption.attachments = [
             {
                 filename: 'logo.png',
-                path: path.resolve('public','logo.png'),
+                path: `https://correntedobem.s3.amazonaws.com/${logoName}`,
                 cid: 'logo'
             }
         ]
@@ -58,15 +59,15 @@ const enviarEmailParaEquipe = id => {
         let objConfig      = await EmailConfigService.findByPK(1)
         let objContato     = await EmailContactService.findByPK(id)
 
-        await FileHelper.downloadImage( objConfig.logo )
-
+        //await FileHelper.downloadImage( objConfig.logo )
+        const logoName = objConfig.logo
         mailOption.subject     = objConfig.subject_send
         mailOption.to          = objConfig.email
         mailOption.cc          = objConfig.copy.split(',')
         mailOption.attachments = [
                                     {
                                         filename: 'logo.png',
-                                        path: path.resolve('public','logo.png'),
+                                        path: `https://correntedobem.s3.amazonaws.com/${logoName}`,
                                         cid: 'logo'
                                     }
                                 ]
