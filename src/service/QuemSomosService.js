@@ -26,7 +26,7 @@ class QuemSomosService{
         if(obj.image){
              let objQuemSomos = await this.findByPK( id )
              if( objQuemSomos.image != null )
-                FileHelper.remove( objArea.image )
+                FileHelper.remove( objQuemSomos.image )
              image         = obj.image
              imageNameFile = `${shortId.generate()}.png`
              obj.image= imageNameFile
