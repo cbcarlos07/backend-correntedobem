@@ -1,21 +1,68 @@
-import { pre } from 'restify'
+
 import EquipeRepository from '../repository/EquipeRepository'
+import shortId from 'shortid'
+import FileHelper from './../helpers/FileHelper'
 class PlanoTaticoService{
 
     static create(obj) {
-        return  EquipeRepository.create( obj )
+        return new Promise((resolve, reject)=>{
+            let photo = ''
+            let photoNameFile = ''
+            if(obj.photo){
+                photo         = obj.photo
+                photoNameFile = `${shortId.generate()}.png`
+                obj.photo= photoNameFile
+            }
+            EquipeRepository.create( obj )
+                .then(response=>{
+                    if(obj.photo) FileHelper.convertToImg( photoNameFile, photo )
+                    resolve(response)
+                })
+        })
     }
 
     static update( id,  obj ){
+        
+        return new Promise(async (resolve, reject)=>{
+            let photo = ''
+            let photoNameFile = ''
+            if(obj.photo){
+                
+                
+                let objEquipe = await this.findByPK( {id} )
+                
+                if( objEquipe.photo != null )
+                    FileHelper.remove( objEquipe.photo )
+                photo         = obj.photo
+                photoNameFile = `${shortId.generate()}.png`
+                obj.photo= photoNameFile
+            }
+            EquipeRepository.update( id, obj )
+                .then(response => {
+                    if(obj.photo) FileHelper.convertToImg( photoNameFile, photo )
+                    resolve(response)
+                })
+
+        })
        
-        return EquipeRepository.update( id, obj )
     }
 
     static delete( id ){        
-        return EquipeRepository.delete(id)
+        return new Promise(async(resolve, reject)=>{
+            let objEquipe = await this.findByPK( id )
+            EquipeRepository
+                .delete(id)
+                .then(response=> {
+                    if( objEquipe.photo != null )
+                        FileHelper.remove( objEquipe.photo )
+                    resolve(response)
+                })
+
+        })
     }
 
     static findByPK( id ){
+        
         return EquipeRepository.findByPK( id )
     }
 
