@@ -40,6 +40,9 @@ const socket = io => {
         socket.on('parceiros', msg => {
             socket.broadcast.emit( 'parceiros', msg )
         })
+        socket.on('quemsomosfotos', msg => {
+            socket.broadcast.emit( 'quemsomosfotos', msg )
+        })
     })
 }
 

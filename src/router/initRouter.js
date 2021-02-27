@@ -18,6 +18,7 @@ import AcoesItemController from '../controller/AcoesItemController'
 import QuemSomosController from '../controller/QuemSomosController'
 import {AreaFotoController} from '../controller/AreaFotoController'
 import ParceirosController from '../controller/ParceirosController'
+import QuemSomosFotosController from '../controller/QuemSomosFotosController'
 const router = new Router.Router()
 
 router.get('', (req, res, next)=>{
@@ -72,5 +73,6 @@ router.get('site/acoes', AcoesController.findAll)
 router.get('site/acoes-item', AcoesItemController.findAll)
 router.get('site/quem-somos', QuemSomosController.findAll)
 router.get('site/parceiros', ParceirosController.findAll)
+router.get('site/quem-somos-fotos', QuemSomosFotosController.findAll)
 
 export default router
