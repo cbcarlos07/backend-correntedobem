@@ -1,5 +1,6 @@
 import aws from 'aws-sdk'
 import AwsService from '../service/AwsService'
+const BUCKET = process.env.BUCKET
 const awsConfig =  () => {
     return new Promise((resolve, reject)=>{
          AwsService.findAll()
@@ -25,9 +26,9 @@ const uploadToAWS = async (fileName, fileB64) => {
     //const fileContent = fs.readFileSync(fileName);
     const fileContent = Buffer.from(fileB64, "base64");
     // Setting up S3 upload parameters
-    const awsObj = await awsConfig()
+    await awsConfig()
     const params = {
-        Bucket: awsObj.s3_bucket,
+        Bucket: BUCKET,
         Key: fileName, // File name you want to save as in S3
         Body: fileContent
     };
@@ -44,11 +45,11 @@ const uploadToAWS = async (fileName, fileB64) => {
 
 const getImage =  image => {
     return new Promise(async (resolve, reject)=>{
-        const awsObj = await awsConfig()
+        await awsConfig()
         const s3 = await s3Config()
         const data =  s3.getObject(
             {
-                Bucket: awsObj.s3_bucket,
+                Bucket: BUCKET,
                 Key: image
             }
             
@@ -58,10 +59,10 @@ const getImage =  image => {
 }
 
 const deleteImg = async image => {
-    const awsObj = await awsConfig()
+    await awsConfig()
     const s3 = await s3Config()
     const params = {
-        Bucket: awsObj.s3_bucket,
+        Bucket: BUCKET,
         Key: image
     }
     s3.deleteObject(params, function(err, data) {

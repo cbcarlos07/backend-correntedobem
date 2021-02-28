@@ -35,10 +35,10 @@ router.post('auth', UsuarioController.auth )
 
 router.get('foto/:image', async (req, res, next)=>{
     const {image} = req.params
-    
+    const host = process.env.HOSTAWS
 
     axios
-        .get(`https://correntedobem.s3.amazonaws.com/${image}`, {
+        .get(`${host}/${image}`, {
             responseType: 'arraybuffer'
         })
         .then(response => {
