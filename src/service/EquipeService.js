@@ -49,10 +49,14 @@ class PlanoTaticoService{
 
     static delete( id ){        
         return new Promise(async(resolve, reject)=>{
-            let objEquipe = await this.findByPK( id )
+            
+            let objEquipe = await this.findByPK( Number(id) )
+            
+            
             EquipeRepository
                 .delete(id)
                 .then(response=> {
+                    console.log('response',response);
                     if( objEquipe.photo != null )
                         FileHelper.remove( objEquipe.photo )
                     resolve(response)

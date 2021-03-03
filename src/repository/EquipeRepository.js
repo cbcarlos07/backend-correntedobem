@@ -14,8 +14,9 @@ class EquipeRepository{
         return Equipe.first().delete({where: {id}})
     }
 
-    static findByPK( id ){        
-        return Equipe.first().find( {where: id} )
+    static findByPK( id ){
+        
+        return Equipe.first().find( {where: {id}} )
     }
 
     static findByArea( id ){

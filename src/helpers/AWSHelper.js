@@ -59,19 +59,24 @@ const getImage =  image => {
 }
 
 const deleteImg = async image => {
-    await awsConfig()
-    const s3 = await s3Config()
-    const params = {
-        Bucket: BUCKET,
-        Key: image
+    try{
+        
+        await awsConfig()
+        const s3 = await s3Config()
+        const params = {
+            Bucket: BUCKET,
+            Key: image
+        }
+        s3.deleteObject(params, function(err, data) {
+            if (err) {
+                //console.log('remove', err.stack)
+                console.log('Falha ao remover', image)
+            } // error
+            else     console.log('Removido');                 // deleted
+        });
+    }catch(e){
+        console.log('Erro ao remover imagem');
     }
-    s3.deleteObject(params, function(err, data) {
-        if (err) {
-            //console.log('remove', err.stack)
-            console.log('Falha ao remover', image)
-        } // error
-        else     console.log('Removido');                 // deleted
-    });
 }
 
 export {uploadToAWS, getImage, deleteImg}
