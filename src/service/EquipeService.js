@@ -86,18 +86,10 @@ class PlanoTaticoService{
     }
     static findByArea(area){        
         return new Promise((resolve, reject)=>{
-            EquipeRepository.findByArea({area_id: area})
+            EquipeRepository.findByArea( area )
                 .then(response=>{
                     
-                    const list = response.map( async r => {
-                        const team = await EquipeRepository.findByPK( {id: r.parent_id} )
-                        
-                        if( team ) r.team = team.name
-                        return r
-                    })
-
-                    let lista = Promise.all( list )
-                    resolve(lista)
+                    resolve(response.rows)
                 })
 
         })

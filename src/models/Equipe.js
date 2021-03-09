@@ -20,5 +20,18 @@ export default class Equipe extends Model{
 
         return MySQL.executeQuery(query,client);
     }
+    static equipe(param , client){
+        
+        const query = {
+            text:`SELECT e.*,
+                    (SELECT ee.name FROM equipe ee WHERE ee.id = e.parent_id LIMIT 1) team
+                FROM equipe e
+                WHERE e.area_id = ?   
+            `,
+            values: [ param ]    
+        }
+
+        return MySQL.executeQuery(query,client);
+    }
 
 }

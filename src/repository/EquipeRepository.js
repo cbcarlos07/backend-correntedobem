@@ -20,7 +20,7 @@ class EquipeRepository{
     }
 
     static findByArea( id ){
-        return Equipe.rows().find( {where: id} )
+        return Equipe.equipe( id )
     }
 
     static findAll(){
