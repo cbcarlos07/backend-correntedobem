@@ -47,10 +47,26 @@ class PlanoTaticoService{
        
     }
 
+    static removerFoto(id){
+        return new Promise(async (resolve, reject)=>{
+            
+            let objEquipe = await this.findByPK( {id} )
+            
+            const obj = {photo: ''}
+            EquipeRepository.update( id, obj )
+                .then(response => {
+                    FileHelper.remove( objEquipe.photo )
+                    resolve(response)
+                })
+
+        })
+
+    }
+
     static delete( id ){        
         return new Promise(async(resolve, reject)=>{
             
-            let objEquipe = await this.findByPK( Number(id) )
+            let objEquipe = await this.findByPK( {id} )
             
             
             EquipeRepository

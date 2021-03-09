@@ -14,6 +14,7 @@ router.get('/:id', EquipeContrller.findByPK)
 router.get('/team/:id', EquipeContrller.getTeam)
 router.get('/team/area/:id', EquipeContrller.findByArea)
 router.get('', EquipeContrller.findAll)
+router.get('/remover-foto/:id', EquipeContrller.removerFoto)
 
 export {setRealtimeEquipe}
 export default router

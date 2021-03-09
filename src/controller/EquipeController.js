@@ -68,4 +68,12 @@ export default class PlanoTaticoController {
             })
     }
 
+    static removerFoto(req, res){
+        EquipeService
+        .removerFoto(req.params.id)
+        .then(response => {
+            res.send( response )
+        })
+    }
+
 }
