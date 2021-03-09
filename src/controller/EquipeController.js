@@ -40,6 +40,7 @@ export default class PlanoTaticoController {
         EquipeService
             .findByPK( {id: req.params.id} )
             .then(response => {
+                
                 res.send( response )
             })
     }
